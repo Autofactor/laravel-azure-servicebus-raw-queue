@@ -1,0 +1,33 @@
+{
+    "name": "autofactor/laravel-azure-servicebus-raw-queue",
+    "description": "Extending the Laravel queue to support the Microsoft Azure Service Bus Queue.",
+    "keywords": [
+        "laravel",
+        "azure",
+        "servicebus",
+        "queue"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Bouma",
+            "email": "me@alexbouma.me"
+        },
+        {
+            "name": "Autofactor",
+            "email": "developers@autofactor.eu"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/queue": "4.2.*",
+        "illuminate/support": "4.2.*",
+        "microsoft/windowsazure": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Autofactor\\LaravelAzureServicebusRawQueue\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
