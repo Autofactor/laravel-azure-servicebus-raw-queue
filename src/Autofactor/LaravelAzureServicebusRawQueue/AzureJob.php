@@ -32,6 +32,7 @@ class AzureJob extends Job {
     
     
     protected $handler = '';
+    protected $raw_body = '';
 
     /**
      * Create a new job instance.
@@ -49,6 +50,7 @@ class AzureJob extends Job {
         $this->queue     = $queue;
         $this->container = $container;
         $this->handler   = $handler;
+        $this->raw_body  = $this->job->getBody()->getContents();
     }
 
     /**
@@ -66,6 +68,7 @@ class AzureJob extends Job {
      * @return void
      */
     public function delete() {
+        parent::delete();
         $this->azure->deleteMessage($this->job);
     }
 
@@ -128,6 +131,6 @@ class AzureJob extends Job {
      * @return string
      */
     public function getRawBody() {
-        return $this->job->getBody();
+        return $this->raw_body;
     }
 }

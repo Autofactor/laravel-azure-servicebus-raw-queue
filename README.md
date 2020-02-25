@@ -5,24 +5,25 @@ Windows Azure Servicebus Queue driver for Laravel
 
 Require this package in your composer.json and run composer update:
 
-	"stayallive/laravel-azure-servicebus-queue": "1.*"
+	"autofactor/laravel-azure-servicebus-raw-queue": "1.*"
 
 or run:
 
-	composer require "stayallive/laravel-azure-servicebus-queue"
+	composer require "autofactor/laravel-azure-servicebus-raw-queue"
 
 After composer update is finished you need to add ServiceProvider to your `providers` array in `app/config/app.php`:
 
-	'Stayallive\LaravelAzureServicebusQueue\Support\Serviceprovider',
+	'autofactor\LaravelAzureServicebusRawQueue\Support\Serviceprovider',
 
 add the following to the `connection` array in `app/config/queue.php`, set your `default` connection to `azure` and fill out your own connection data from the Azure Management portal:
 
 	'azure' => array(
-        'driver'       => 'azure.servicebus',
+        'driver'       => 'azure.servicebus.raw',
         'endpoint'     => 'https://*.servicebus.windows.net',
         'secret'       => '',
         'secretissuer' => 'owner',
-        'queue'        => ''
+        'queue'        => '',
+        'job_handler'  => ''
     )
 
 #### Usage

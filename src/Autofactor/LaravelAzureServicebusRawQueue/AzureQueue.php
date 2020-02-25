@@ -116,6 +116,7 @@ class AzureQueue extends Queue implements QueueInterface {
         $queue = $this->getQueue($queue);
 
         $options = new ReceiveMessageOptions;
+        $options->setPeekLock();
 
         $job = $this->azure->receiveQueueMessage($queue, $options);
 
